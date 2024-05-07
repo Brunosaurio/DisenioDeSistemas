@@ -1,3 +1,71 @@
 MIEMBROS DEL EQUIPO:
 BRUNO DE ANGELIS
 YERILIN VILLARREAL MAMANI
+Justificaciones de Algunos Atributos y metodos
+Transeúnte
+-Atributos
+sexo : Sexo , que es un enumerado el cual son solo de 3 tipos
+FEMENINO,MASCULINO Y OTRO
+unaDireccion : Dirección como una clase que tenga una latitud y una longitud.
+esto para poder evitar errores, y que cada dirección sea única
+unaReaccion : ReaccionFrenteIncidente : es una Interfaz en donde dependiendo
+de cuál será su forma de actuar adoptará distintas reacciones las cuales son clases
+que son alertarCuidadores,LlamarPolicia,EsperarNMinutos,o
+LlamarCelularUsuario que implementa esa interfaz.Esto para que a la hora de
+reaccionar haga lo que tenga que hacer en cada caso.
+En este ultimo tratamos de implementar el Patrón Strategy pero como no hay
+comportamiento en común usamos una interfaz en vez de una Clase abstracta.
+tipoDeNotificacion:NotificacionTramos , es del tipo de interfaz porque el
+transeúnte puede elegir entre dos formas de notificar , puede notificar al final o
+notificar tramo por tramo y atraves de este calcularDemora recorrida en el viaje
+.Aqui igual que el anterior
+Dirección Actual : es de la Clase Dirección mencionada antes,
+-Metodos
+irDeViaje(Direccion direccionActual,Dirrecion destino)
+En este método se crea el la intención de viaje
+agregaParadaAlViaje(Direccion nuevaParada ,Int demoraEnSeg) agrega los
+tramos al viaje
+nominarCuidadores(Cuidador unCuidador) elige a los posibles cuidadores
+corfirmarCuidadores()
+comenzarViaje() confirma la intención de viaje
+reaccionarAnteIncidente () según la interfaz reacciona de manera diferente
+reaccionarAnteIncidente(): se efectúa la reacción determinada
+cambiarDireccion(): Cambia la dirección actual
+cambiarReaccionPreferida(ReaccionIncidente unaReaccion): cambia el tipo de
+reacción
+agregarParadaAlViaje(Direccion nuevaParada, Integer demoraEnSegundos)
+le agrega una parada al viaje , en donde se crea el tramo
+llegueBien(Tramo)
+Viaje
+- Atributos
+listaCuidadores : Cuidador , de la clase Cuidador
+ViajeAceptado :Bool Atributo que especifica si tiene el viaje tiene al menos un
+cuidador
+ViajeActivo :Bool se pone en true cuando el viaje inicia y no puede recibir
+notificaciones
+ListaDeTramos: List <Tramo> todos los tramos por el cual tiene que pasar para
+llegar al destino final.
+-Metodos
+notificarViajeACuidadores() notifica el viaje a los cuidadores
+comenzarElViaje() comienza el viaje tramo por tramo
+calcularDemora(): Integer calcula la demora ya sea por tramos más las demoras o
+solo los intervalos de tiempo en el que se recorre todos los tramos
+Tramo
+-Atributos
+Direccion : origen
+Direccion : destino
+Del tipo de la Clase Direccion
+-metodos
+realizoElTramo(Transeunte) cambia la direccion actual del transeunte a la direccion
+destino del tramo, asi mantener actualizada la direccion actual tramo a tramo
+Cuidador
+Atributos
+nombre_apellido ; String
+Direccion : unaDireccion
+-cuidadandoViaje:Viaje
+-sexo:Sexo
+-QuiereTrabajar:Bool , en este atributo decide si quiere aceptar el viaje
+-Metodos
+aceptaUnViaje(Viaje unViaje):Bool ,es un booleano por que nos sirve para en viaje
+saber quienes de los cuidadores van a cuidar al transeúnte en un viaje
+aceptarViaje(Viaje unViaje): setea el viaje a cuidandoViaje
