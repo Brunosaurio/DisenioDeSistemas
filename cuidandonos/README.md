@@ -1,2 +1,2 @@
-Yerilin Villareal Mamani
+Yerilin Villarreal Mamani
 Bruno Daniel De Angelis
